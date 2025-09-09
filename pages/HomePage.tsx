@@ -29,8 +29,17 @@ const HomePage: React.FC = () => {
         <div className="space-y-8">
             <NextPrevGrandPrix />
             <div>
-                <h1 className="text-4xl font-extrabold text-center mb-2 tracking-tighter text-gray-900 dark:text-white">Temporada 2025 de Fórmula 1</h1>
-                <p className="text-center text-gray-600 dark:text-gray-400 text-lg">Selecciona un Gran Premio para ver las sesiones.</p>
+                <h1 className="text-4xl font-extrabold text-center mb-2 tracking-tighter text-gray-900 dark:text-white">
+                    Resubidos F1 2025 - Calendario Completo
+                </h1>
+                <div className="text-center space-y-2 max-w-3xl mx-auto">
+                    <p className="text-gray-600 dark:text-gray-400 text-lg">
+                        Calendario actualizado de la temporada 2025 de Fórmula 1
+                    </p>
+                    <p className="text-gray-500 dark:text-gray-500 text-sm">
+                        Encuentra todos los Grandes Premios, fechas, circuitos y sesiones de la temporada F1 2025
+                    </p>
+                </div>
             </div>
             
             <div className="relative max-w-2xl mx-auto">
