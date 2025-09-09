@@ -14,6 +14,8 @@ export default defineConfig({
         }
       }
     },
+    assetsDir: 'assets',
+    copyPublicDir: true,
     chunkSizeWarningLimit: 1000,
     cssCodeSplit: true,
     sourcemap: false,
