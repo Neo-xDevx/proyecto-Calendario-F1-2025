@@ -1,0 +1,5 @@
+{
+  "name": "Calendario F1 2025",
+  "description": "Una aplicación web para ver el calendario de la temporada 2025 de Fórmula 1, incluyendo los Grandes Premios y sus sesiones. Permite buscar carreras y acceder a enlaces de video para cada sesión.",
+  "requestFramePermissions": []
+}
