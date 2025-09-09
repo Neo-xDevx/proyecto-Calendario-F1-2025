@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { GrandPrix } from '../types';
 import { Calendar, MapPin } from 'lucide-react';
+import { getImagePath } from '../utils/imagePath';
 
 interface GrandPrixCardProps {
     gp: GrandPrix;
@@ -20,7 +21,7 @@ const GrandPrixCard: React.FC<GrandPrixCardProps> = ({ gp }) => {
                         <h3 className="text-xl font-bold text-gray-900 dark:text-white tracking-wide">{gp.name}</h3>
                     </div>
                     <img 
-                        src={`/img/${gp.countryCode.toLowerCase()}.webp`} 
+                        src={getImagePath(`img/flags/${gp.countryCode.toLowerCase()}.webp`)} 
                         alt={`Bandera de ${gp.country}`}
                         className="w-14 h-9 object-cover rounded-md shadow-sm"
                         loading="lazy"

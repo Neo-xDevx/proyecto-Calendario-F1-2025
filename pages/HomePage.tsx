@@ -6,6 +6,7 @@ import { GrandPrix } from '../types';
 import { Search } from 'lucide-react';
 import { normalizeText } from '../utils/text';
 import AdBlockerToast from '../components/AdBlockerToast';
+import NextPrevGrandPrix from '../components/NextPrevGrandPrix';
 
 const HomePage: React.FC = () => {
     const [searchQuery, setSearchQuery] = useState('');
@@ -26,6 +27,7 @@ const HomePage: React.FC = () => {
 
     return (
         <div className="space-y-8">
+            <NextPrevGrandPrix />
             <div>
                 <h1 className="text-4xl font-extrabold text-center mb-2 tracking-tighter text-gray-900 dark:text-white">Temporada 2025 de Fórmula 1</h1>
                 <p className="text-center text-gray-600 dark:text-gray-400 text-lg">Selecciona un Gran Premio para ver las sesiones.</p>

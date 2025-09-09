@@ -2,14 +2,32 @@ import React, { useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { F1_CALENDAR_2025 } from '../constants/data';
 import SessionButton from '../components/SessionButton';
+import { getImagePath } from '../utils/imagePath';
 import { ChevronLeft, MapPin, Calendar } from 'lucide-react';
 import VideoPlayerModal from '../components/VideoPlayerModal';
 import AdBlockerToast from '../components/AdBlockerToast';
 
 const GrandPrixPage: React.FC = () => {
     const { id } = useParams<{ id: string }>();
-    const gp = F1_CALENDAR_2025.find(g => g.id === id);
     const [selectedVideoUrl, setSelectedVideoUrl] = useState<string | null>(null);
+    const [isLoading, setIsLoading] = useState(true);
+    const gp = React.useMemo(() => F1_CALENDAR_2025.find(g => g.id === id), [id]);
+
+    React.useEffect(() => {
+        // Simular un pequeño delay para asegurar que los datos se carguen correctamente
+        const timer = setTimeout(() => {
+            setIsLoading(false);
+        }, 100);
+        return () => clearTimeout(timer);
+    }, [id]);
+
+    if (isLoading) {
+        return (
+            <div className="flex items-center justify-center min-h-[400px]">
+                <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-red-600"></div>
+            </div>
+        );
+    }
 
     if (!gp) {
         return (
@@ -51,8 +69,11 @@ const GrandPrixPage: React.FC = () => {
                                 <p className="text-xl text-gray-600 dark:text-gray-400 mt-1">{gp.country}</p>
                             </div>
                             <img
-                                src={`/img/${gp.countryCode.toLowerCase()}.webp`}
+                                src={getImagePath(`img/flags/${gp.countryCode.toLowerCase()}.webp`)}
                                 alt={`Bandera de ${gp.country}`}
+                                loading="lazy"
+                                width="96"
+                                height="64"
                                 className="w-24 h-16 object-cover rounded-lg shadow-md shrink-0"
                             />
                         </div>
@@ -92,7 +113,7 @@ const GrandPrixPage: React.FC = () => {
                                 <h2 className="text-2xl font-bold text-gray-900 dark:text-white border-b-2 border-red-600 pb-2">Mapa del Circuito</h2>
                                 <div className="overflow-hidden rounded-lg bg-gray-100 dark:bg-gray-900/50 p-2 mt-4">
                                     <img
-                                        src={`/img/circuits/map-${mapImageId}.webp`}
+                                        src={getImagePath(`img/circuits/map-${mapImageId}.webp`)}
                                         alt={`Mapa del ${gp.circuit}`}
                                         className="w-full h-auto object-contain rounded-md"
                                         loading="lazy"

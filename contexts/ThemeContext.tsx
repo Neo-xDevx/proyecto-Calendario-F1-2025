@@ -1,4 +1,4 @@
-import React, { createContext, useState, useEffect, useContext, ReactNode } from 'react';
+import { createContext, useState, useEffect, useContext, ReactNode } from 'react';
 
 type Theme = 'light' | 'dark';
 
@@ -35,7 +35,14 @@ export const ThemeProvider = ({ children }: { children: ReactNode }) => {
     }, [theme]);
 
     const toggleTheme = () => {
-        setTheme(prevTheme => (prevTheme === 'light' ? 'dark' : 'light'));
+        const newTheme = theme === 'light' ? 'dark' : 'light';
+        setTheme(newTheme);
+        if (newTheme === 'dark') {
+            document.documentElement.classList.add('dark');
+        } else {
+            document.documentElement.classList.remove('dark');
+        }
+        localStorage.setItem('theme', newTheme);
     };
 
     return (
