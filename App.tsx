@@ -4,6 +4,7 @@ import Footer from './components/Footer';
 import HomePage from './pages/HomePage';
 import GrandPrixPage from './pages/GrandPrixPage';
 import DisclaimerPage from './pages/DisclaimerPage';
+import HowToWatchPage from './pages/HowToWatchPage';
 import { ThemeProvider } from './contexts/ThemeContext';
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
                             <Route path="/" element={<HomePage />} />
                             <Route path="/gp/:id" element={<GrandPrixPage />} />
                             <Route path="/disclaimer" element={<DisclaimerPage />} />
+                            <Route path="/como-ver" element={<HowToWatchPage />} />
                         </Routes>
                     </main>
                     <Footer />

@@ -10,7 +10,15 @@ const Header: React.FC = () => {
                  <Link to="/" className="text-2xl md:text-3xl font-bold tracking-wider text-gray-900 dark:text-white">
                     <span className="text-red-600">F1</span> CALENDARIO <span className="text-gray-500 dark:text-gray-400">2025</span>
                 </Link>
-                <ThemeToggleButton />
+                <div className="flex items-center gap-4">
+                    <Link 
+                        to="/como-ver" 
+                        className="text-sm font-medium text-gray-600 hover:text-red-600 dark:text-gray-400 dark:hover:text-red-500 transition-colors"
+                    >
+                        Cómo Ver
+                    </Link>
+                    <ThemeToggleButton />
+                </div>
             </div>
         </header>
     );
